@@ -1,0 +1,11 @@
+models: 
+  - name: stg_customers
+    description: customers model
+    columns:
+      - name: customer_id
+        description: customer_id is the unique key of the table
+        tests:
+          - unique
+          - not_null
+    group: source_models
+    access: public
