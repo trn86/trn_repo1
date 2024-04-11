@@ -1,11 +1,34 @@
 models: 
   - name: stg_customers
     description: customers model
+    config:
+      contract:
+        enforced: true
     columns:
       - name: customer_id
         description: customer_id is the unique key of the table
+        data_type: int
+        constraints:
+          - type: not_null
         tests:
           - unique
           - not_null
+      - name: is_active
+        data_type: boolean
+        constraints:
+          - type: not_null
+      - name: first_name
+        data_type: varchar(50)
+        constraints:
+          - type: not_null
+        tests:
+          - not_null
+      - name: last_name
+        data_type: varchar(50)
+        constraints:
+          - type: not_null
+        tests:
+          - not_null
     group: source_models
     access: public
+    
